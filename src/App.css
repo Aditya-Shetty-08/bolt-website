@@ -1,0 +1,781 @@
+/* ==============================================================
+   BOLT BOOTCAMPS — COMPONENT STYLES
+   ==============================================================
+   Design tokens (colors, fonts, spacing) live in index.css.
+   This file styles every section/component on the page.
+   ============================================================== */
+
+
+/* ---------------------------------------------------------------
+   SHARED UTILITIES
+   --------------------------------------------------------------- */
+
+/* Centered page wrapper — wrap any section content in this */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* Standard section padding */
+.section {
+  padding: var(--space-24) 0;
+}
+
+/* Alternate section background (every other section) */
+.section--alt {
+  background-color: var(--color-bg-secondary);
+}
+
+/* Eyebrow label above headings (e.g. "Our Mission") */
+.section__label {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-3);
+}
+
+/* Section heading */
+.section__title {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+}
+
+/* Section supporting text */
+.section__subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+
+/* ---------------------------------------------------------------
+   BUTTONS
+   TODO: Add more variants — ghost, icon-only, large/small sizes
+   TODO: Add ripple animation on click
+   --------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: var(--space-3) var(--space-8);
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+
+/* Filled yellow CTA */
+.btn--primary {
+  background-color: var(--color-accent);
+  color: #000000;
+}
+.btn--primary:hover {
+  background-color: var(--color-accent-dark);
+  transform: translateY(-1px);
+  /* TODO: Add glow box-shadow on hover */
+}
+
+/* Outlined secondary button */
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-accent);
+}
+.btn--secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+
+/* ---------------------------------------------------------------
+   NAVBAR
+   TODO: Add mobile hamburger menu (hide .navbar__links on ≤768px)
+   TODO: Add scroll-based background opacity or blur increase
+   TODO: Add active class on the link matching the current section
+   --------------------------------------------------------------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  background-color: rgba(10, 10, 10, 0.85);
+  border-bottom: 1px solid var(--color-border);
+  /* Glass blur effect — tweak backdrop-filter values for intensity */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* Brand / logo mark */
+.navbar__logo {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 900;
+  color: var(--color-accent);
+  letter-spacing: -0.02em;
+}
+/* The period after BOLT is white — small detail, big character */
+.navbar__logo span {
+  color: var(--color-text-primary);
+}
+
+/* Nav links list */
+/* TODO: On mobile, hide this and show a hamburger icon instead */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.navbar__link {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+.navbar__link:hover {
+  color: var(--color-text-primary);
+}
+
+/* APPLY pill — stands out from nav links */
+.navbar__apply {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  padding: var(--space-2) var(--space-6);
+  background-color: var(--color-accent);
+  color: #000000;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.05em;
+  transition: background-color var(--transition-fast);
+}
+.navbar__apply:hover {
+  background-color: var(--color-accent-dark);
+}
+
+
+/* ---------------------------------------------------------------
+   HERO SECTION
+   TODO: Add animated background — particles, lightning bolt motif,
+         or a looping video of past bootcamp events
+   TODO: Add entrance animations (fade-up with stagger per element)
+   TODO: Add a scroll-indicator arrow at the bottom
+   --------------------------------------------------------------- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  /* Push content below fixed navbar */
+  padding-top: var(--nav-height);
+  background-color: var(--color-bg-primary);
+  /* Subtle radial glow behind the hero — replace with image/video later */
+  background-image: radial-gradient(
+    ellipse 80% 60% at 50% 40%,
+    rgba(245, 197, 24, 0.05) 0%,
+    transparent 70%
+  );
+}
+
+.hero__content {
+  max-width: 760px;
+}
+
+/* Small accent line before the eyebrow text */
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-6);
+}
+.hero__eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background-color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* Main headline — uses clamp() so it scales on all screen sizes */
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 6vw, var(--text-5xl));
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-6);
+}
+/* Highlighted word(s) inside the title */
+.hero__title em {
+  font-style: normal;
+  color: var(--color-accent);
+}
+
+.hero__description {
+  font-size: var(--text-xl);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-10);
+  max-width: 580px;
+}
+
+/* CTA row */
+.hero__actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  /* TODO: Stack on mobile */
+}
+
+
+/* ---------------------------------------------------------------
+   ABOUT SECTION
+   TODO: Add scroll-triggered counter animation for the stats
+   TODO: Replace placeholder stats with verified real numbers
+   TODO: Replace the visual placeholder with a photo or reel
+   --------------------------------------------------------------- */
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.about__text .section__subtitle {
+  margin-bottom: var(--space-8);
+}
+
+/* 2×2 stat grid below the description */
+.about__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-10);
+}
+
+/* Individual stat item with left yellow rule */
+.stat {
+  border-left: 2px solid var(--color-accent);
+  padding-left: var(--space-4);
+}
+.stat__number {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: 900;
+  color: var(--color-accent);
+  line-height: 1;
+}
+.stat__label {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-1);
+}
+
+/* Visual placeholder (right column) */
+/* TODO: Replace with <img> or <video> once media is available */
+.about__visual {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about__visual-placeholder {
+  font-size: 5rem;
+  /* A lightning bolt emoji as a temporary stand-in */
+}
+
+
+/* ---------------------------------------------------------------
+   SKILLS SECTION
+   TODO: Replace emoji icons with custom SVG icon components
+   TODO: Add hover card flip or modal with more detail per skill
+   TODO: Add scroll-triggered entrance animation (fade + slide up)
+   --------------------------------------------------------------- */
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-12);
+}
+
+.skill-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  transition: all var(--transition-base);
+}
+.skill-card:hover {
+  border-color: var(--color-border-accent);
+  background-color: var(--color-bg-card-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+  /* TODO: Add yellow glow box-shadow */
+}
+
+.skill-card__icon {
+  font-size: 2.25rem;
+  margin-bottom: var(--space-4);
+  /* TODO: Swap with <img> SVG icon */
+}
+.skill-card__title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+}
+.skill-card__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+
+/* ---------------------------------------------------------------
+   MISSION SECTION
+   TODO: Add animated connecting line between pillars on desktop
+   TODO: Add entrance animation on scroll (staggered per pillar)
+   --------------------------------------------------------------- */
+.mission__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+  margin-top: var(--space-12);
+}
+
+.mission-pillar {
+  text-align: center;
+  padding: var(--space-10) var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-card);
+  position: relative;
+  overflow: hidden;
+}
+/* Yellow top accent bar */
+.mission-pillar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+}
+
+/* Large decorative number in the background */
+.mission-pillar__number {
+  font-family: var(--font-display);
+  font-size: 5.5rem;
+  font-weight: 900;
+  color: rgba(245, 197, 24, 0.06);
+  line-height: 1;
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.04em;
+  /* Sits behind the text — adjust opacity in rgba above to taste */
+}
+.mission-pillar__title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--color-accent);
+  margin-bottom: var(--space-4);
+}
+.mission-pillar__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+
+/* ---------------------------------------------------------------
+   PROJECTS / PAST EVENTS SECTION
+   TODO: Add project cover images / screenshots
+   TODO: Add video embed for student demo reels
+   TODO: Link each card to a detailed project page
+   --------------------------------------------------------------- */
+.projects__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--space-12);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.project-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.project-card:hover {
+  border-color: var(--color-border-accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+/* Season label (e.g. "Fall 2018") */
+.project-card__season {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.project-card__title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: var(--color-text-primary);
+}
+.project-card__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  flex: 1;
+}
+/* Challenge prompt displayed as a styled blockquote */
+.project-card__prompt {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-style: italic;
+  padding: var(--space-3) var(--space-4);
+  border-left: 2px solid var(--color-accent);
+  background-color: var(--color-accent-subtle);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-top: auto;
+}
+
+
+/* ---------------------------------------------------------------
+   SPONSORS SECTION
+   TODO: Replace text badges with actual logo <img> elements
+   TODO: Add sponsor tier rows: Platinum / Gold / Silver
+   TODO: Add "Become a Sponsor" CTA linking to a sponsorship deck
+   --------------------------------------------------------------- */
+.sponsors__center {
+  text-align: center;
+}
+.sponsors__center .section__subtitle {
+  margin: 0 auto var(--space-12);
+}
+
+.sponsors__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+  margin-bottom: var(--space-12);
+}
+
+/* Pill badge — replace the text with a logo image when ready */
+.sponsor-badge {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-6);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.04em;
+  transition: all var(--transition-fast);
+}
+.sponsor-badge:hover {
+  border-color: var(--color-border-accent);
+  color: var(--color-text-primary);
+}
+
+/* CTA row below sponsor grid */
+.sponsors__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+.sponsors__cta-label {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+
+/* ---------------------------------------------------------------
+   TEAM SECTION
+   TODO: Add headshot photos (swap .team-card__avatar for <img>)
+   TODO: Add LinkedIn icon button per member
+   TODO: Pull current exec roster from a JSON/CMS so it's easy to update
+   --------------------------------------------------------------- */
+.team__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-12);
+  max-width: 880px;
+}
+
+.team-card {
+  display: flex;
+  gap: var(--space-5);
+  align-items: flex-start;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  transition: border-color var(--transition-fast);
+}
+.team-card:hover {
+  border-color: var(--color-border-accent);
+}
+
+/* Avatar circle — initials placeholder until photos are added */
+.team-card__avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--color-accent-subtle);
+  border: 2px solid var(--color-border-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 800;
+  color: var(--color-accent);
+  flex-shrink: 0;
+  /* TODO: Replace with <img src={member.photo} alt={member.name} /> */
+}
+
+.team-card__name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+.team-card__role {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-3);
+}
+.team-card__bio {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+
+/* ---------------------------------------------------------------
+   CONTACT SECTION
+   TODO: Add a contact form (name, email, message, submit)
+   TODO: Wire up form to an email service (Formspree, EmailJS, etc.)
+   TODO: Add Twitter/X social link if BOLT has one
+   --------------------------------------------------------------- */
+.contact {
+  text-align: center;
+}
+.contact .section__subtitle {
+  margin: 0 auto var(--space-10);
+}
+
+.social__links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.social__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+}
+.social__link:hover {
+  border-color: var(--color-border-accent);
+  color: var(--color-accent);
+}
+.social__link__handle {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+/* Apply CTA at the bottom of the contact section */
+.contact__cta {
+  margin-top: var(--space-16);
+}
+.contact__cta h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  margin-bottom: var(--space-6);
+}
+
+
+/* ---------------------------------------------------------------
+   FOOTER
+   TODO: Add more columns (About, Events, Resources, Newsletter)
+   TODO: Add newsletter email signup input
+   --------------------------------------------------------------- */
+.footer {
+  background-color: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-12) 0 var(--space-8);
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.footer__brand {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 900;
+  color: var(--color-accent);
+}
+
+.footer__links {
+  display: flex;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+.footer__link {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+.footer__link:hover {
+  color: var(--color-text-secondary);
+}
+
+.footer__bottom {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+
+/* ---------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   TODO: Flesh these out for all sections, especially navbar mobile
+   --------------------------------------------------------------- */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .skills__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-16) 0;
+  }
+  .section__title {
+    font-size: var(--text-3xl);
+  }
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
+  .about__visual {
+    display: none; /* hide placeholder image on mobile — show real media when ready */
+  }
+  .mission__grid {
+    grid-template-columns: 1fr;
+  }
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+  .team__grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+  .hero__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  /* TODO: Replace this display:none with a proper hamburger drawer */
+  .navbar__links {
+    display: none;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .skills__grid {
+    grid-template-columns: 1fr;
+  }
+  .about__stats {
+    grid-template-columns: 1fr;
+  }
+}

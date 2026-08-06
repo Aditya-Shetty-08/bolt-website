@@ -1,0 +1,112 @@
+/* ==============================================================
+   BOLT BOOTCAMPS — DESIGN TOKENS & GLOBAL STYLES
+   ==============================================================
+
+   HOW TO USE TOKENS:
+   All colors, fonts, spacing, and radii live in :root below.
+   Change a value here and it cascades everywhere on the page.
+
+   TODO: Once you confirm the exact brand hex codes from the
+   original boltbootcamps.com, update the color variables below.
+   ============================================================== */
+
+/* ---------------------------------------------------------------
+   DESIGN TOKENS
+   --------------------------------------------------------------- */
+:root {
+
+  /* ---- Colors: Backgrounds ---- */
+  --color-bg-primary:   #0A0A0A;   /* Main page background */
+  --color-bg-secondary: #0F0F0F;   /* Alt section background (slightly lighter) */
+  --color-bg-card:      #181818;   /* Cards and panels */
+  --color-bg-card-hover:#202020;   /* Card on hover */
+
+  /* ---- Colors: BOLT Accent (Yellow / Lightning) ---- */
+  /* TODO: Replace with confirmed brand hex from the real site */
+  --color-accent:       #F5C518;              /* Primary CTA, highlights, icons */
+  --color-accent-dark:  #D4AA00;              /* Hover / pressed state */
+  --color-accent-subtle:rgba(245,197,24,0.10);/* Tinted backgrounds, blockquotes */
+
+  /* ---- Colors: Text ---- */
+  --color-text-primary:   #FFFFFF;  /* Headings, body */
+  --color-text-secondary: #A0A0A0;  /* Supporting text, subtitles */
+  --color-text-muted:     #555555;  /* Timestamps, credits, footnotes */
+
+  /* ---- Colors: Borders ---- */
+  --color-border:        #222222;             /* Default border */
+  --color-border-accent: rgba(245,197,24,0.25);/* Highlighted border */
+
+  /* ---- Typography: Families ---- */
+  /* Loaded in public/index.html via Google Fonts */
+  --font-display: 'Montserrat', sans-serif;   /* Headings, navbar, buttons */
+  --font-body:    'Inter',      sans-serif;   /* Body copy */
+
+  /* ---- Typography: Scale ---- */
+  --text-xs:   0.75rem;   /*  12px */
+  --text-sm:   0.875rem;  /*  14px */
+  --text-base: 1rem;      /*  16px */
+  --text-lg:   1.125rem;  /*  18px */
+  --text-xl:   1.25rem;   /*  20px */
+  --text-2xl:  1.5rem;    /*  24px */
+  --text-3xl:  1.875rem;  /*  30px */
+  --text-4xl:  2.25rem;   /*  36px */
+  --text-5xl:  3rem;      /*  48px */
+
+  /* ---- Spacing ---- */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* ---- Layout ---- */
+  --max-width:  1200px;
+  --nav-height: 72px;
+
+  /* ---- Radii ---- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* ---- Shadows ---- */
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.5);
+  --shadow-glow: 0 0 32px rgba(245,197,24,0.15);
+
+  /* ---- Transitions ---- */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+}
+
+
+/* ---------------------------------------------------------------
+   GLOBAL RESET & BASE
+   --------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a  { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
